@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-foxel.py
+foxel.py - userinterface for scanning range finder
 
 Created by Maximillian Dornseif on 2011-07-17.
 Copyright (c) 2011 HUDORA. All rights reserved.
@@ -9,7 +9,9 @@ Copyright (c) 2011 HUDORA. All rights reserved.
 
 import sys
 import os
+import json
 import pygame
+import time
 from pygame.locals import *
 import foxellib
 
@@ -32,18 +34,29 @@ def find_dimensions():
 def setup_screen():
     wunschgroesse = 800
     minx, maxx, miny, maxy = find_dimensions()
-    datenbreitex = int(max([abs(minx), abs(maxx)]) * 2)
+    datenbreitex = int(max([abs(minx), abs(maxx)]) * 2) + 400
     datenbreitey = int(max([abs(miny), abs(maxy)]) * 2)
-    scale = (float(wunschgroesse)) / float(datenbreitex)
+    scale = float(wunschgroesse) / float(datenbreitex)
     #print datenbreitex, datenbreitey, scale
     centerx = datenbreitex / 2 * scale
     centery = datenbreitey / 2 * scale
     # 20 Pixel Rahmen
     centerx, centery = centerx + 20, centery + 20
-    screen = pygame.display.set_mode(((datenbreitex * scale) + 40, (datenbreitey * scale) + 40), 0, 32)
+    screen = pygame.display.set_mode((int(datenbreitex * scale) + 40, int(datenbreitey * scale) + 40), 0, 32)
     pygame.display.set_caption('Foxel - Gangprofilmessung')
     #print screen, scale, centerx, centery
     return screen, scale, centerx, centery
+
+# Fläche berechnen:
+# You can use something known as Hero's (or Heron's) Formula, which uses the semi-perimeter (half of the perimeter) in the following formula: Area = sq rt{s(s - a)(s - b)(s - c)}
+# Find the semiperimeter --- in other words, add the three sides, then divide by 2. This is s.
+# Subtract (semiperim.) - side A
+# Subtract (semiperim.) - side B
+# Subtract (semiperim.) - side C
+# Multiply steps 2 through 4
+# Multiply step 5 by the semiperim.
+# Take the square root of that result.
+
 
 def main():
     screen, scale, centerx, centery = setup_screen()
@@ -101,8 +114,21 @@ def main():
         
         screen.blit(scanner_surface, (0,0))
         pygame.display.flip()
-
-
+        time.sleep(0.3)
+        for event in pygame.event.get():
+           if (event.type == KEYDOWN):
+              if (event.key == K_ESCAPE):
+                 sys.exit(0)
+              if (event.key == K_SPACE):
+                  startname = 0
+                  while os.path.exists('scan%03d.data' % startname):
+                      startname += 1
+                  fd = open('scan%03d.data' % startname, 'w')
+                  fd.write(json.dumps(data))
+                  fd.close()
+                  print 'scan%03d.data' % startname
+                  pygame.display.set_caption('scan%03d.data' % startname)
+                  
 if __name__ == '__main__':
     main()
 

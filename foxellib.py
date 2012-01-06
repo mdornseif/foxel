@@ -10,7 +10,7 @@ for other approaches of interfacing with the hardware.
 
 
 Created by Maximillian Dornseif on 2011-07-14, based on his code from 2008.
-Copyright (c) 2011 Dr. Maximillian Dornseif. All rights reserved.
+Copyright (c) 2011, 2012 Dr. Maximillian Dornseif. All rights reserved.
 """
 
 import math
@@ -29,8 +29,8 @@ def read_untilempty(fd):
             if data:
                 break
     return ''.join(data)
-    
-    
+
+
 # Protocil specification is at http://static.23.nu/md/Pictures/hokuyo-URG-04LX-SCIP1-com-spec.pdf
 def aquire_scan():
     """Aquire data from the scanner."""
