@@ -5,12 +5,12 @@ foxellib.py - interfacing with a Hokuyo-URG04 SCIP 1.0 LIDAR
 
 See http://www.hokuyo-aut.jp/02sensor/07scanner/download/urg_programs_en/ 
 http://svn.sourceforge.jp/svnroot/qrobosdk/ http://www.ros.org/wiki/hokuyo_node
-and http://correll.cs.colorado.edu/pmwiki/index.php/Main/LaserScanner
+and http://bit.ly/w9f8Le
 for other approaches of interfacing with the hardware.
 
 
 Created by Maximillian Dornseif on 2011-07-14, based on his code from 2008.
-Copyright (c) 2011, 2012 Dr. Maximillian Dornseif. All rights reserved.
+Copyright (c) 2008, 2011, 2012 Dr. Maximillian Dornseif. All rights reserved.
 """
 
 import math

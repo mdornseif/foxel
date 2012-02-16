@@ -4,7 +4,7 @@
 foxel.py - userinterface for scanning range finder
 
 Created by Maximillian Dornseif on 2011-07-17.
-Copyright (c) 2011 HUDORA. All rights reserved.
+Copyright (c) 2011, 2012 Dr. Maximillian Dornseif. All rights reserved.
 """
 
 import sys
