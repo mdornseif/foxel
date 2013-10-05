@@ -29,3 +29,7 @@ Zur Ansteuerung des LIDAR siehe [`foxellib.py`][3].
 1: http://www.hokuyo-aut.jp/02sensor/07scanner/urg_04lx.html
 2: http://blog.akkh.de/experimente-mit-volldigitaler-gangprofilverme
 3: https://github.com/mdornseif/foxel/blob/master/foxellib.py
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/mdornseif/foxel/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
