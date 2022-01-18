@@ -1,3 +1,5 @@
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
+
 Experimente zur automatischen Ganprofilvermessong von Hohlräumen. Das Ergebnis sieht dann etwa so aus:
 
 ![Unter meinem Schreibtisch](http://static.23.nu/md/Pictures/PythonSnapz001.png)
